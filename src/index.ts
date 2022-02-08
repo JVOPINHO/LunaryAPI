@@ -52,6 +52,9 @@ io.on('connection', async(socket: Socket) => {
             userId: user.id,
             manager,
         }, null)
+        if(!Object.keys(guildData).length) {
+            return disconnect('Invalid guild')
+        }
 
         data.guild = guildData
     }
